@@ -4,16 +4,7 @@
           id="payment_form_fluxx_magento2"
           style="display:none"
     >
-    <div class="field field-state admin__field required">
-        <div class="admin__field _required">
-            <label class="label admin__field-label" for="fluxx_magento2_dob" >
-                <span><?= $block->escapeHtml(__('Date of Birth (dd/mm/yyyy)')) ?></span>
-            </label>
-            <div class="admin__field-control control">
-                <input type="text" name="payment[dob]" class="input-text admin__control-text required-entry" placeholder="DD/MM/AAAA">
-            </div>
-        </div>
-    </div>
+   
     <div class="field field-state admin__field required">
         <div class="admin__field _required">
             <label class="label admin__field-label" for="fluxx_magento2_rg" >
@@ -51,6 +42,7 @@
             </div>
         </div>
     </div>
+    <?php if(!empty($checkOffers['offers'])): ?>
     <div class="field field-state admin__field required">
         <div class="admin__field _required">
             <label class="label admin__field-label" for="fluxx_magento2_financing" >
@@ -78,5 +70,8 @@
             <?= $checkOffers['institution'] ?>
         </div>
     </div>
+    <?php else: ?>
+       <p><?= $block->escapeHtml(__('Não há ofetas de crédito.')) ?></p>
+    <?php endif; ?>
 </fieldset>
 
